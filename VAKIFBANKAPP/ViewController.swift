@@ -30,9 +30,5 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    @IBAction func addButtonClicked(_ sender: Any) {
-        performSegue(withIdentifier: "toEnvanterKayit", sender: nil)
-    }
-    
 }
 
