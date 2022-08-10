@@ -13,6 +13,11 @@
 		B6E739AE289BE39A003D4530 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E739AC289BE39A003D4530 /* Main.storyboard */; };
 		B6E739B0289BE39B003D4530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E739AF289BE39B003D4530 /* Assets.xcassets */; };
 		B6E739B3289BE39B003D4530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E739B1289BE39B003D4530 /* LaunchScreen.storyboard */; };
+		CEEC8E9F28A12A0A00C93B05 /* registeredInventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8E9E28A12A0A00C93B05 /* registeredInventoryController.swift */; };
+		CEEC8EA128A13B5400C93B05 /* InventoryRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8EA028A13B5400C93B05 /* InventoryRecordController.swift */; };
+		CEEC8EA328A13C4500C93B05 /* PersonnelDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8EA228A13C4500C93B05 /* PersonnelDetailsController.swift */; };
+		CEEC8EA528A13C7C00C93B05 /* UpdateInventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8EA428A13C7C00C93B05 /* UpdateInventoryController.swift */; };
+		CEEC8EA728A13CB300C93B05 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8EA628A13CB300C93B05 /* ErrorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		B6E739AF289BE39B003D4530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6E739B2289BE39B003D4530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6E739B4289BE39B003D4530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEEC8E9E28A12A0A00C93B05 /* registeredInventoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registeredInventoryController.swift; sourceTree = "<group>"; };
+		CEEC8EA028A13B5400C93B05 /* InventoryRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryRecordController.swift; sourceTree = "<group>"; };
+		CEEC8EA228A13C4500C93B05 /* PersonnelDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelDetailsController.swift; sourceTree = "<group>"; };
+		CEEC8EA428A13C7C00C93B05 /* UpdateInventoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInventoryController.swift; sourceTree = "<group>"; };
+		CEEC8EA628A13CB300C93B05 /* ErrorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,28 @@
 		B6E739A5289BE39A003D4530 /* VAKIFBANKAPP */ = {
 			isa = PBXGroup;
 			children = (
-				B6E739A6289BE39A003D4530 /* AppDelegate.swift */,
-				B6E739A8289BE39A003D4530 /* SceneDelegate.swift */,
-				B6E739AA289BE39A003D4530 /* ViewController.swift */,
+				CEEC8EA828A14E2C00C93B05 /* view */,
 				B6E739AC289BE39A003D4530 /* Main.storyboard */,
 				B6E739AF289BE39B003D4530 /* Assets.xcassets */,
 				B6E739B1289BE39B003D4530 /* LaunchScreen.storyboard */,
 				B6E739B4289BE39B003D4530 /* Info.plist */,
 			);
 			path = VAKIFBANKAPP;
+			sourceTree = "<group>";
+		};
+		CEEC8EA828A14E2C00C93B05 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CEEC8EA628A13CB300C93B05 /* ErrorController.swift */,
+				CEEC8EA428A13C7C00C93B05 /* UpdateInventoryController.swift */,
+				CEEC8EA228A13C4500C93B05 /* PersonnelDetailsController.swift */,
+				CEEC8EA028A13B5400C93B05 /* InventoryRecordController.swift */,
+				CEEC8E9E28A12A0A00C93B05 /* registeredInventoryController.swift */,
+				B6E739A8289BE39A003D4530 /* SceneDelegate.swift */,
+				B6E739AA289BE39A003D4530 /* ViewController.swift */,
+				B6E739A6289BE39A003D4530 /* AppDelegate.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +163,11 @@
 			files = (
 				B6E739AB289BE39A003D4530 /* ViewController.swift in Sources */,
 				B6E739A7289BE39A003D4530 /* AppDelegate.swift in Sources */,
+				CEEC8EA128A13B5400C93B05 /* InventoryRecordController.swift in Sources */,
+				CEEC8EA528A13C7C00C93B05 /* UpdateInventoryController.swift in Sources */,
+				CEEC8E9F28A12A0A00C93B05 /* registeredInventoryController.swift in Sources */,
+				CEEC8EA328A13C4500C93B05 /* PersonnelDetailsController.swift in Sources */,
+				CEEC8EA728A13CB300C93B05 /* ErrorController.swift in Sources */,
 				B6E739A9289BE39A003D4530 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
