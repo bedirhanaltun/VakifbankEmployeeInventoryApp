@@ -23,11 +23,18 @@ class UpdateInventoryController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sicilNoTextField.addUnderLine()
+        nameTextField.addUnderLine()
+        surnameTextField.addUnderLine()
+        departmentTextField.addUnderLine()
+        inventoryTextField.addUnderLine()
 
     
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
+        
+        
     }
     
     

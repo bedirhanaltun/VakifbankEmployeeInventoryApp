@@ -22,6 +22,9 @@ class PersonnelDetailsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        sicilNoTextField.addUnderLine()
+        nameAndSurnameTextField.addUnderLine()
+        departmentTextField.addUnderLine()
     }
     
     
@@ -32,3 +35,5 @@ class PersonnelDetailsController: UIViewController {
     
     
 }
+
+

@@ -22,6 +22,11 @@ class InventoryRecordController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sicilNoTextField.addUnderLine()
+        nameTextField.addUnderLine()
+        surNameTextField.addUnderLine()
+        departmentTextField.addUnderLine()
+        inventoriesTextField.addUnderLine()
 
     }
     
@@ -38,3 +43,4 @@ class InventoryRecordController: UIViewController {
     
 
 }
+
