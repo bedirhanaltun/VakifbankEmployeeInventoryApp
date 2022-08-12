@@ -16,7 +16,9 @@ class PersonnelDetailsController: UIViewController {
     
     @IBOutlet weak var departmentTextField: UITextField!
     
-    
+    var selectedSicilNo : Int = 0
+    var selectedDepartman = ""
+    var selectedNameAndSurname = ""
     
     
     override func viewDidLoad() {
@@ -25,6 +27,9 @@ class PersonnelDetailsController: UIViewController {
         sicilNoTextField.addUnderLine()
         nameAndSurnameTextField.addUnderLine()
         departmentTextField.addUnderLine()
+        sicilNoTextField.text = String(selectedSicilNo)
+        departmentTextField.text = selectedDepartman
+        nameAndSurnameTextField.text = selectedNameAndSurname
     }
     
     

@@ -14,6 +14,9 @@
 		B6E739B0289BE39B003D4530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E739AF289BE39B003D4530 /* Assets.xcassets */; };
 		B6E739B3289BE39B003D4530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E739B1289BE39B003D4530 /* LaunchScreen.storyboard */; };
 		B6F6C9DC28A518B800CE2353 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6C9DB28A518B800CE2353 /* LoginModels.swift */; };
+		B6F6C9DE28A5339A00CE2353 /* GetProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6C9DD28A5339A00CE2353 /* GetProductListModel.swift */; };
+		B6F6C9E028A6681A00CE2353 /* EmployeesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6C9DF28A6681A00CE2353 /* EmployeesModel.swift */; };
+		B6F6C9E228A6782900CE2353 /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6C9E128A6782900CE2353 /* InventoryCell.swift */; };
 		CEEC8E9F28A12A0A00C93B05 /* registeredInventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8E9E28A12A0A00C93B05 /* registeredInventoryController.swift */; };
 		CEEC8EA128A13B5400C93B05 /* InventoryRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8EA028A13B5400C93B05 /* InventoryRecordController.swift */; };
 		CEEC8EA328A13C4500C93B05 /* PersonnelDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8EA228A13C4500C93B05 /* PersonnelDetailsController.swift */; };
@@ -31,6 +34,9 @@
 		B6E739B2289BE39B003D4530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6E739B4289BE39B003D4530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6F6C9DB28A518B800CE2353 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		B6F6C9DD28A5339A00CE2353 /* GetProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductListModel.swift; sourceTree = "<group>"; };
+		B6F6C9DF28A6681A00CE2353 /* EmployeesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesModel.swift; sourceTree = "<group>"; };
+		B6F6C9E128A6782900CE2353 /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		CEEC8E9E28A12A0A00C93B05 /* registeredInventoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registeredInventoryController.swift; sourceTree = "<group>"; };
 		CEEC8EA028A13B5400C93B05 /* InventoryRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryRecordController.swift; sourceTree = "<group>"; };
 		CEEC8EA228A13C4500C93B05 /* PersonnelDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelDetailsController.swift; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				B6F6C9DB28A518B800CE2353 /* LoginModels.swift */,
+				B6F6C9DD28A5339A00CE2353 /* GetProductListModel.swift */,
+				B6F6C9DF28A6681A00CE2353 /* EmployeesModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -97,6 +105,7 @@
 				B6E739A8289BE39A003D4530 /* SceneDelegate.swift */,
 				B6E739AA289BE39A003D4530 /* ViewController.swift */,
 				B6E739A6289BE39A003D4530 /* AppDelegate.swift */,
+				B6F6C9E128A6782900CE2353 /* InventoryCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -176,8 +185,11 @@
 				B6E739A7289BE39A003D4530 /* AppDelegate.swift in Sources */,
 				CEEC8EA128A13B5400C93B05 /* InventoryRecordController.swift in Sources */,
 				CEEC8EA528A13C7C00C93B05 /* UpdateInventoryController.swift in Sources */,
+				B6F6C9DE28A5339A00CE2353 /* GetProductListModel.swift in Sources */,
 				CEEC8E9F28A12A0A00C93B05 /* registeredInventoryController.swift in Sources */,
+				B6F6C9E028A6681A00CE2353 /* EmployeesModel.swift in Sources */,
 				CEEC8EA328A13C4500C93B05 /* PersonnelDetailsController.swift in Sources */,
+				B6F6C9E228A6782900CE2353 /* InventoryCell.swift in Sources */,
 				B6F6C9DC28A518B800CE2353 /* LoginModels.swift in Sources */,
 				CEEC8EA728A13CB300C93B05 /* ErrorController.swift in Sources */,
 				B6E739A9289BE39A003D4530 /* SceneDelegate.swift in Sources */,

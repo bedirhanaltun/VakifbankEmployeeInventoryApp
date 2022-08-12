@@ -40,6 +40,29 @@ class ViewController: UIViewController{
             return
         }
         
+        if sicilNoTextfield.text == ""{
+            sicilNoLabel.isHidden = false
+            if passwordTextfield.text == ""{
+                passwordLabel.isHidden = false
+            }
+            
+        }
+        else if sicilNoTextfield.text != sicilNo {
+            if passwordTextfield.text == ""{
+                passwordLabel.isHidden = false
+            }
+        }
+        else if passwordTextfield.text != password {
+            if sicilNoTextfield.text == ""{
+                sicilNoLabel.isHidden = false
+            }
+        }
+        else if sicilNoTextfield.text == sicilNo {
+            if passwordTextfield.text == ""{
+                passwordLabel.isHidden = false
+            }
+        }
+        
         let requestModel = LoginCheckRequest(checkUsername: sicilNo, checkPassword: password)
         // Show Progress
         
