@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09D5B48928A910CE00CB1953 /* EmployeeProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5B48828A910CE00CB1953 /* EmployeeProductsModel.swift */; };
+		09D5B48B28A9120800CB1953 /* EmployeeProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5B48A28A9120800CB1953 /* EmployeeProductController.swift */; };
 		B6E739A7289BE39A003D4530 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E739A6289BE39A003D4530 /* AppDelegate.swift */; };
 		B6E739A9289BE39A003D4530 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E739A8289BE39A003D4530 /* SceneDelegate.swift */; };
 		B6E739AB289BE39A003D4530 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E739AA289BE39A003D4530 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09D5B48828A910CE00CB1953 /* EmployeeProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProductsModel.swift; sourceTree = "<group>"; };
+		09D5B48A28A9120800CB1953 /* EmployeeProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProductController.swift; sourceTree = "<group>"; };
 		B6E739A3289BE39A003D4530 /* VAKIFBANKAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VAKIFBANKAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E739A6289BE39A003D4530 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6E739A8289BE39A003D4530 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 				B6F6C9DB28A518B800CE2353 /* LoginModels.swift */,
 				B6F6C9DD28A5339A00CE2353 /* GetProductListModel.swift */,
 				B6F6C9DF28A6681A00CE2353 /* EmployeesModel.swift */,
+				09D5B48828A910CE00CB1953 /* EmployeeProductsModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 				B6E739AA289BE39A003D4530 /* ViewController.swift */,
 				B6E739A6289BE39A003D4530 /* AppDelegate.swift */,
 				B6F6C9E128A6782900CE2353 /* InventoryCell.swift */,
+				09D5B48A28A9120800CB1953 /* EmployeeProductController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -192,7 +198,9 @@
 				B6F6C9E228A6782900CE2353 /* InventoryCell.swift in Sources */,
 				B6F6C9DC28A518B800CE2353 /* LoginModels.swift in Sources */,
 				CEEC8EA728A13CB300C93B05 /* ErrorController.swift in Sources */,
+				09D5B48B28A9120800CB1953 /* EmployeeProductController.swift in Sources */,
 				B6E739A9289BE39A003D4530 /* SceneDelegate.swift in Sources */,
+				09D5B48928A910CE00CB1953 /* EmployeeProductsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -322,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

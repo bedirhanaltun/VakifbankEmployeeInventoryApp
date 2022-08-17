@@ -21,6 +21,7 @@ class PersonnelDetailsController: UIViewController {
     var selectedNameAndSurname = ""
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,12 +31,24 @@ class PersonnelDetailsController: UIViewController {
         sicilNoTextField.text = String(selectedSicilNo)
         departmentTextField.text = selectedDepartman
         nameAndSurnameTextField.text = selectedNameAndSurname
+        
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEnvanterDetay"{
+            
+            let destinationForEmployeeProduct = segue.destination as! EmployeeProductController
+            destinationForEmployeeProduct.employeeRequest = EmployeeCheck(id: selectedSicilNo)
+        }
     }
     
     
     
     
     @IBAction func continueButtonClicked(_ sender: Any) {
+        
     }
     
     
