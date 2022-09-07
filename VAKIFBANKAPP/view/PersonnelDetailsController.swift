@@ -19,7 +19,7 @@ class PersonnelDetailsController: UIViewController {
     var selectedSicilNo : Int = 0
     var selectedDepartman = ""
     var selectedNameAndSurname = ""
-    
+    var selectedSicilNumber : Int = 0
     
     
     override func viewDidLoad() {
@@ -31,10 +31,13 @@ class PersonnelDetailsController: UIViewController {
         sicilNoTextField.text = String(selectedSicilNo)
         departmentTextField.text = selectedDepartman
         nameAndSurnameTextField.text = selectedNameAndSurname
+        sicilNoTextField.text = String(selectedSicilNo)
         
         
         
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEnvanterDetay"{

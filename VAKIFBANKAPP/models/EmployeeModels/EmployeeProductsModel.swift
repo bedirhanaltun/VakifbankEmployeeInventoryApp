@@ -1,10 +1,3 @@
-//
-//  EmployeeProductsModel.swift
-//  VAKIFBANKAPP
-//
-//  Created by Bedirhan Altun on 14.08.2022.
-//
-
 import Foundation
 
 
@@ -21,6 +14,7 @@ struct EmployeeProduct: Codable{
     let productId: Int
     let pairId: Int
     let recordId: Int
+    var name: String?
 }
 
 struct EmployeeProductError: Codable{

@@ -14,6 +14,7 @@ class ViewController: UIViewController{
     @IBOutlet weak var passwordTextfield: UITextField!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         sicilNoTextfield.addUnderLine()
         passwordTextfield.addUnderLine()
@@ -22,12 +23,18 @@ class ViewController: UIViewController{
         sicilNoTextfield.addTarget(self, action: #selector(ViewController.textFieldDidChange(_:)), for: .editingChanged)
         passwordTextfield.addTarget(self, action: #selector(ViewController.textFieldDidChangePassword(_:)), for: .editingChanged)
         
+        if UserDefaults.standard.bool(forKey: "ISUSERLOGGEDIN") == true {
+            let inventoryVC = self.storyboard?.instantiateViewController(withIdentifier: "registeredInventoryId") as! registeredInventoryController
+            self.navigationController?.pushViewController(inventoryVC, animated: true)
+        }
+        
         
     }
     
+    
+    
     @IBAction func loginButtonClicked(_ sender: Any) {
-        
-        
+
         guard let sicilNo = sicilNoTextfield.text else {
             // Error  Label
             sicilNoLabel.isHidden = true
@@ -63,6 +70,7 @@ class ViewController: UIViewController{
             }
         }
         
+        
         let requestModel = LoginCheckRequest(checkUsername: sicilNo, checkPassword: password)
         // Show Progress
         
@@ -74,7 +82,10 @@ class ViewController: UIViewController{
             
             
             if loginChecked.checkForLogin {
-                // LOGIN SUCEESS
+                // LOGIN SUCCESS
+                UserDefaults.standard.set(true, forKey: "ISUSERLOGGEDIN")
+                
+                
                 
                 self.performSegue(withIdentifier: "registeredInventory", sender: nil)
                 
@@ -88,6 +99,9 @@ class ViewController: UIViewController{
         
         
     }
+    
+    
+    
     
     private func getLoginData(requestModel: LoginCheckRequest, completion: @escaping (LoginCheckReponse?) -> Void)  {
         guard let url =  URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Login/LoginCheck") else { return }

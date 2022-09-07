@@ -32,5 +32,12 @@ class InventoryCell: UITableViewCell {
         nameSurnameLabel.text = employee.employeeName + " " + employee.employeeSurname
         idLabel.text = employee.guidId
         departmentLabel.text = employee.department
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
+            departmentLabel.isHidden = false
+            idLabel.isHidden = false
+            nameSurnameLabel.isHidden = false
+        }
     }
+    
+    
 }
