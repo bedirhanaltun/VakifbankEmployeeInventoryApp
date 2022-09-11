@@ -10,8 +10,10 @@ class InventoryRecordController: UIViewController {
     @IBOutlet weak var departmentTextField: UITextField!
     @IBOutlet weak var inventoriesTextField: UITextField!
     
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var sicilNoErrorLabel: UILabel!
     
+    @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var soyadErrorLabel: UILabel!
     @IBOutlet weak var adErrorLabel: UILabel!
     
@@ -19,8 +21,8 @@ class InventoryRecordController: UIViewController {
     @IBOutlet weak var departmanErrorLabel: UILabel!
     
     var getAddProduct : AddProduct?
-    var getAddEmployee: AddEmployee?
     var getAddEmployeeProduct: AddEmployeeProduct?
+    var employeeError: AddEmployeeError?
     
     var newProductId : Int = 0
     var newRecordId : Int = 0
@@ -31,41 +33,64 @@ class InventoryRecordController: UIViewController {
     var newEmployeeEmail = ""
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textFieldSettings()
         
-        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         
-        let requestModelAddProduct = AddProductCheck(newProductId: newProductId, newProductName: newProductName)
+    }
+    
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        
+        
+        
+        newRecordId = Int(sicilNoTextField.text ?? "") ?? 0
+        newEmployeeName = nameTextField.text ?? ""
+        newEmployeeSurname = surNameTextField.text ?? ""
+        newEmployeeDepartment = departmentTextField.text ?? ""
+        newEmployeeEmail = emailTextField.text ?? ""
+        newProductId = Int(inventoriesTextField.text ?? "") ?? 0
+        
+        
         let requestModelAddEmployee = AddEmployeeCheck(newRecordId: newRecordId, newEmployeeName: newEmployeeName, newEmployeeSurname: newEmployeeSurname, newEmployeeDepartment: newEmployeeDepartment, newEmployeeEmail: newEmployeeEmail, newProductId: newProductId)
-        let requestModelAddEmployeeProduct = AddEmployeeProductCheck(newRecordId: newRecordId, newProductId: newProductId)
-        
-        addProduct(requestModelAddProduct: requestModelAddProduct){ addProductForAdminResponse in
-            guard let addProductDataChecked = addProductForAdminResponse else{
-                return
-            }
-            self.getAddProduct = addProductDataChecked
-            
-        }
         
         addEmployee(requestModelAddEmployee: requestModelAddEmployee){ addEmployeeForAdminResponse in
             guard let addEmployeeDataChecked = addEmployeeForAdminResponse else{
                 return
             }
-            self.getAddEmployee = addEmployeeDataChecked
+            
+            if let errorModel = addEmployeeDataChecked.errorModel {
+                
+                self.showAlert(alertText: "Hata", alertMessage: errorModel.errorModelDescription)
+                return
+            }
+            
+            self.navigationController?.popViewController(animated: true)
             
         }
         
-        addEmployeeProduct(requestModelAddEmployeeProduct: requestModelAddEmployeeProduct){ addEmployeeProductForAdminResponse in
-            guard let addEmployeeProductDataChecked = addEmployeeProductForAdminResponse else{
-                return
+        
+        
+        if sicilNoTextField.text == ""{
+            sicilNoErrorLabel.isHidden = false
+            if nameTextField.text == ""{
+                adErrorLabel.isHidden = false
+                if surNameTextField.text == ""{
+                    soyadErrorLabel.isHidden = false
+                    if departmentTextField.text == ""{
+                        departmanErrorLabel.isHidden = false
+                        if inventoriesTextField.text == ""{
+                            envanterErrorLabel.isHidden = false
+                            if emailTextField.text == ""{
+                                emailErrorLabel.isHidden = false
+                            }
+                        }
+                    }
+                }
             }
-            self.getAddEmployeeProduct = addEmployeeProductDataChecked
-            
         }
-
-
+        
     }
     
     private func addProduct(requestModelAddProduct: AddProductCheck, completion: @escaping (AddProduct?) -> Void){
@@ -107,8 +132,8 @@ class InventoryRecordController: UIViewController {
                     completion(nil)
                 }
             }
-
-
+            
+            
         }.resume()
     }
     
@@ -150,8 +175,8 @@ class InventoryRecordController: UIViewController {
                     completion(nil)
                 }
             }
-
-
+            
+            
         }.resume()
     }
     
@@ -196,21 +221,21 @@ class InventoryRecordController: UIViewController {
                     completion(nil)
                 }
             }
-
-
+            
+            
         }.resume()
         
     }
     
     
-   
+    
     
     
     @IBAction func sicilNoChanged(_ sender: Any) {
         sicilNoErrorLabel.isHidden = false
     }
     
-   
+    
     @IBAction func adChanged(_ sender: Any) {
         adErrorLabel.isHidden = false
     }
@@ -227,26 +252,7 @@ class InventoryRecordController: UIViewController {
         envanterErrorLabel.isHidden = false
         
     }
-    @IBAction func saveClickedButton(_ sender: Any) {
-        
-        if sicilNoTextField.text == ""{
-            sicilNoErrorLabel.isHidden = false
-            if nameTextField.text == ""{
-                adErrorLabel.isHidden = false
-                if surNameTextField.text == ""{
-                    soyadErrorLabel.isHidden = false
-                    if departmentTextField.text == ""{
-                        departmanErrorLabel.isHidden = false
-                        if inventoriesTextField.text == ""{
-                            envanterErrorLabel.isHidden = false
-                        }
-                    }
-                }
-            }
-        }
-        
-        
-    }
+    
     
     @objc func sicilNoFunction(){
         sicilNoErrorLabel.isHidden = true
@@ -258,11 +264,12 @@ class InventoryRecordController: UIViewController {
         soyadErrorLabel.isHidden = true
     }
     @objc func departmanFunction(){
-       departmanErrorLabel.isHidden = true
+        departmanErrorLabel.isHidden = true
     }
     @objc func envanterFunction(){
         envanterErrorLabel.isHidden = true
     }
+    
     
     func textFieldSettings(){
         sicilNoTextField.addUnderLine()
@@ -270,6 +277,9 @@ class InventoryRecordController: UIViewController {
         surNameTextField.addUnderLine()
         departmentTextField.addUnderLine()
         inventoriesTextField.addUnderLine()
+        emailTextField.addUnderLine()
+        
+        emailErrorLabel.isHidden = true
         sicilNoErrorLabel.isHidden = true
         adErrorLabel.isHidden = true
         soyadErrorLabel.isHidden = true
@@ -282,6 +292,17 @@ class InventoryRecordController: UIViewController {
         inventoriesTextField.addTarget(self, action: #selector(envanterFunction), for: .editingChanged)
     }
     
-        
+    
 }
+
+extension UIViewController {
+    //Show a basic alert
+    func showAlert(alertText : String, alertMessage : String) {
+        let alert = UIAlertController(title: alertText, message: alertMessage, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Got it", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+
 

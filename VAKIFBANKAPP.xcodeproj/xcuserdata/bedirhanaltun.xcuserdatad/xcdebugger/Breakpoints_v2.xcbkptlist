@@ -7,240 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ED7B7407-3F28-4DA7-81EF-EC92C8BCF3E6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "611CE6BC-46F0-43ED-A3F9-E78DF36ECC8F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "searchBar(_:textDidChange:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F7CBEB18-AA6B-4AD3-952E-6D758FC14366"
+            uuid = "F1497A89-DE08-45B2-893F-7050EFD139A7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "deleteEmployees(requestModelDeleteEmployees:completion:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F7CBEB18-AA6B-4AD3-952E-6D758FC14366 - eb3d2c76e06e06d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in VAKIFBANKAPP.registeredInventoryController.deleteEmployees(requestModelDeleteEmployees: VAKIFBANKAPP.DeleteEmployeeCheck, completion: (Swift.Optional&lt;VAKIFBANKAPP.DeleteEmployee&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "VAKIFBANKAPP"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bedirhanaltun/Desktop/GITHUB/VakifbankApp/VAKIFBANKAPP/view/registeredInventoryController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "189"
-                  endingLineNumber = "189"
-                  offsetFromSymbolStart = "320">
-               </Location>
-               <Location
-                  uuid = "F7CBEB18-AA6B-4AD3-952E-6D758FC14366 - eb3d2c76e06e06d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in VAKIFBANKAPP.registeredInventoryController.deleteEmployees(requestModelDeleteEmployees: VAKIFBANKAPP.DeleteEmployeeCheck, completion: (Swift.Optional&lt;VAKIFBANKAPP.DeleteEmployee&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "VAKIFBANKAPP"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bedirhanaltun/Desktop/GITHUB/VakifbankApp/VAKIFBANKAPP/view/registeredInventoryController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "189"
-                  endingLineNumber = "189"
-                  offsetFromSymbolStart = "348">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FAF22C84-4FA2-4D1C-9F42-1063871C00D5"
+            uuid = "D8F5F0DA-9952-4853-8147-27A89D642355"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "deleteEmployees(requestModelDeleteEmployees:completion:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "19C34B95-D588-4FE8-AD4C-8577885E1C84"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "deleteEmployees(requestModelDeleteEmployees:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "956B8645-BD81-43D2-8E5B-6ED5692FC0E5"
+            uuid = "0F46130B-98DD-4C03-AE5A-19E5D0D65CA3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "deleteEmployees(requestModelDeleteEmployees:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BFEC7B50-F047-404E-884C-507BD5B7B6FB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
-            landmarkName = "deleteEmployees(requestModelDeleteEmployees:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D45CAF8A-9455-4C43-A6D9-D3F7B98A4C44"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "deleteEmployees(requestModelDeleteEmployees:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D2461462-1A94-4CE0-9CB2-BF98EFFC6781"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
-            landmarkName = "tableView(_:commit:forRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9C903E65-15A3-472E-9684-A432D69B41D8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "tableView(_:commit:forRowAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9C903E65-15A3-472E-9684-A432D69B41D8 - e7dbece20b52d1d6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;VAKIFBANKAPP.DeleteEmployee&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.UIAlertAction&gt;) -&gt; () in VAKIFBANKAPP.registeredInventoryController.tableView(_: __C.UITableView, commit: __C.UITableViewCellEditingStyle, forRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "VAKIFBANKAPP"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bedirhanaltun/Desktop/GITHUB/VakifbankApp/VAKIFBANKAPP/view/registeredInventoryController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
-                  offsetFromSymbolStart = "168">
-               </Location>
-               <Location
-                  uuid = "9C903E65-15A3-472E-9684-A432D69B41D8 - e7dbece20b52d1d6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;VAKIFBANKAPP.DeleteEmployee&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.UIAlertAction&gt;) -&gt; () in VAKIFBANKAPP.registeredInventoryController.tableView(_: __C.UITableView, commit: __C.UITableViewCellEditingStyle, forRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "VAKIFBANKAPP"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bedirhanaltun/Desktop/GITHUB/VakifbankApp/VAKIFBANKAPP/view/registeredInventoryController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
-                  offsetFromSymbolStart = "224">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "335CB274-AD85-47D8-9D72-FD5249C1D5E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VAKIFBANKAPP/view/registeredInventoryController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
-            landmarkName = "tableView(_:commit:forRowAt:)"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -16,11 +16,8 @@ class PersonnelDetailsController: UIViewController {
     
     @IBOutlet weak var departmentTextField: UITextField!
     
-    var selectedSicilNo : Int = 0
-    var selectedDepartman = ""
-    var selectedNameAndSurname = ""
-    var selectedSicilNumber : Int = 0
-    
+    var selectedEmployee: Employee?
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +25,9 @@ class PersonnelDetailsController: UIViewController {
         sicilNoTextField.addUnderLine()
         nameAndSurnameTextField.addUnderLine()
         departmentTextField.addUnderLine()
-        sicilNoTextField.text = String(selectedSicilNo)
-        departmentTextField.text = selectedDepartman
-        nameAndSurnameTextField.text = selectedNameAndSurname
-        sicilNoTextField.text = String(selectedSicilNo)
+        sicilNoTextField.text = String(selectedEmployee?.recordId ?? 0)
+        departmentTextField.text = selectedEmployee?.department
+        nameAndSurnameTextField.text = (selectedEmployee?.employeeName ?? "") + " " + (selectedEmployee?.employeeSurname ?? "")
         
         
         
@@ -43,9 +39,15 @@ class PersonnelDetailsController: UIViewController {
         if segue.identifier == "toEnvanterDetay"{
             
             let destinationForEmployeeProduct = segue.destination as! EmployeeProductController
-            destinationForEmployeeProduct.employeeRequest = EmployeeCheck(id: selectedSicilNo)
+            destinationForEmployeeProduct.employeeRequest = EmployeeCheck(id: selectedEmployee?.recordId ?? 0)
+        }
+        
+        if segue.identifier == "toUpdateInventory"{
+            let destinationUpdateEmployee = segue.destination as! UpdateInventoryController
+            destinationUpdateEmployee.selectedEmployee = selectedEmployee
         }
     }
+    
     
     
     

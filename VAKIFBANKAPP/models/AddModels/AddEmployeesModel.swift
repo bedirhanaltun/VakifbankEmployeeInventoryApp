@@ -12,8 +12,8 @@ struct AddEmployeeCheck: Codable {
 
 
 struct AddEmployee: Codable {
-    let employee: Employee
-    let errorModel: AddEmployeeError
+    let employee: Employee?
+    let errorModel: AddEmployeeError?
 }
 
 struct AddEmployeeProperties: Codable {

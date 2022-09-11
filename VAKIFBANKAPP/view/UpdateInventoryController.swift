@@ -22,6 +22,8 @@ class UpdateInventoryController: UIViewController {
     var getUpdateEmployeeResponse : UpdateEmployee?
     var getUpdateProductResponse: UpdateProduct?
     var getUpdateEmployeeProductResponse: UpdateEmployeeProduct?
+ 
+    var selectedEmployee: Employee?
     
     var updatedProductId: Int = 0
     var updatedProductName: String = ""
@@ -35,6 +37,13 @@ class UpdateInventoryController: UIViewController {
         surnameTextField.addUnderLine()
         departmentTextField.addUnderLine()
         inventoryTextField.addUnderLine()
+        
+        sicilNoTextField.text = "Sicil No: \(String(selectedEmployee?.recordId ?? 0))"
+        departmentTextField.text = "Departman: \(selectedEmployee?.department ?? "")"
+        nameTextField.text = "Ad: \(selectedEmployee?.employeeName ?? "")"
+        surnameTextField.text = "Soyad: \(selectedEmployee?.employeeSurname ?? "")"
+        inventoryTextField.text = ""
+        
         
         updateEmployee { updateEmployeeForAdminResponse in
             guard let updateEmployeeDataChecked = updateEmployeeForAdminResponse else{

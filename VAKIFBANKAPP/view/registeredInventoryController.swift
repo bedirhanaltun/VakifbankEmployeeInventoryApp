@@ -8,18 +8,12 @@
 import UIKit
 
 
-class registeredInventoryController: BaseViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+class registeredInventoryController: BaseViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate{
+    
+    
     
     var employeeList: [Employee] = []
     var filteredList: [Employee] = []
-    
-    
-    
-    var chosensicilNo : Int = 0
-    var chosenAd = ""
-    var chosenSoyad = ""
-    var chosenDepartman = ""
-    var test = [String]()
     
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -51,7 +45,10 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
         }
         
         showProgress(message: "Veriler yükleniyor ...")
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getEmployeeData { response in
             self.stopProgress()
             guard let employeDataChecked = response else{
@@ -65,9 +62,9 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
             self.invertoryTableView.reloadData()
         }
         
-        
-        
     }
+    
+    
     @objc func logOutButtonClicked(){
         UserDefaults.standard.set(false, forKey: "ISUSERLOGGEDIN")
         performSegue(withIdentifier: "toLoginScreen", sender: nil)
@@ -85,13 +82,17 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
             return
         }
         
+        
         filteredList.removeAll()
         for employee in employeeList where employee.employeeName.lowercased().contains(searchText.lowercased()){
             filteredList.append(employee)
+            
         }
         
         invertoryTableView.reloadData()
     }
+    
+    
     
     
     
@@ -323,9 +324,7 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPersonelDetay"{
             let destinationVC = segue.destination as! PersonnelDetailsController
-            destinationVC.selectedSicilNo = chosensicilNo
-            destinationVC.selectedDepartman = chosenDepartman
-            destinationVC.selectedNameAndSurname = chosenAd + " " + chosenSoyad
+            destinationVC.selectedEmployee = sender as? Employee
             
             
         }
@@ -333,14 +332,8 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let getEmployee = filteredList[indexPath.row]
-        chosenAd = getEmployee.employeeName
-        chosenSoyad = getEmployee.employeeSurname
-        chosenDepartman = getEmployee.department
-        chosensicilNo = getEmployee.recordId
-        
-        
-        
-        self.performSegue(withIdentifier: "toPersonelDetay", sender: nil)
+ 
+        self.performSegue(withIdentifier: "toPersonelDetay", sender: getEmployee)
         
     }
     
@@ -360,17 +353,13 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             
-            
-            
-            
-            
             let alert = UIAlertController(title: "Personel Sil", message: "Silmek istediğinizden emin misiniz?", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {[self](action:UIAlertAction!) in
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {[self] (action:UIAlertAction!) in
                 let getEmployeeId = filteredList[indexPath.row]
                 let chosenSicilNumber = getEmployeeId.recordId
                 
                 let deleteEmployeeRequestModel = DeleteEmployeeCheck(id: chosenSicilNumber)
-                deleteEmployees(requestModelDeleteEmployees: deleteEmployeeRequestModel) { deleteEmployeeResponse in
+                deleteEmployees(requestModelDeleteEmployees: deleteEmployeeRequestModel) { [self] deleteEmployeeResponse in
                     guard let deleteEmployeeDataChecked = deleteEmployeeResponse
                     else{
                         return
@@ -378,15 +367,18 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
                     
                     if let errorModel = deleteEmployeeDataChecked.errorModel{
                         //Show Error
-                        
+                        self.showAlert(alertText: "Hata", alertMessage: errorModel.errorModelDescription)
                         return
                     }
                     
-                    self.filteredList.remove(at: indexPath.row)
-                    self.invertoryTableView.deleteRows(at: [indexPath], with: .fade)
-                    //self.invertoryTableView.reloadData()
+                    filteredList.remove(at: indexPath.row)
+                    invertoryTableView.beginUpdates()
+                    invertoryTableView.deleteRows(at: [indexPath], with: .fade)
+                    invertoryTableView.endUpdates()
+                    invertoryTableView.reloadData()
                 }
             }))
+            
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             

@@ -33,7 +33,6 @@ class BaseViewController: UIViewController {
         loadingIndicator.style = .medium
         loadingIndicator.startAnimating()
         
-        
         loadingLabel.text = message
         loadingLabel.textColor = .black
         loadingLabel.font = UIFont(name: loadingLabel.font.fontName, size: 18)

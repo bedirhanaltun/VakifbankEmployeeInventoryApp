@@ -113,7 +113,7 @@ class EmployeeProductController: UIViewController,UITableViewDelegate,UITableVie
     
     
     
-    private func getEmployeeProduct(requestEmployeeProduct: EmployeeCheck,completion: @escaping (EmployeeProductList?) -> Void ){
+    public func getEmployeeProduct(requestEmployeeProduct: EmployeeCheck,completion: @escaping (EmployeeProductList?) -> Void ){
         guard let productURL = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/EmployeeProduct/GetEmployeeProductById")
         else{
             return
