@@ -94,7 +94,7 @@ class InventoryRecordController: UIViewController {
     }
     
     private func addProduct(requestModelAddProduct: AddProductCheck, completion: @escaping (AddProduct?) -> Void){
-        guard let addProductUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Product/AddProducts")
+        guard let addProductUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Product/AddProducts")
         else{
             return
         }
@@ -138,7 +138,7 @@ class InventoryRecordController: UIViewController {
     }
     
     private func addEmployeeProduct(requestModelAddEmployeeProduct: AddEmployeeProductCheck, completion: @escaping (AddEmployeeProduct?) -> Void){
-        guard let addEmployeeProductUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/EmployeeProduct/AddEmployeeProducts")
+        guard let addEmployeeProductUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/EmployeeProduct/AddEmployeeProducts")
         else{
             return
         }
@@ -183,7 +183,7 @@ class InventoryRecordController: UIViewController {
     
     private func addEmployee(requestModelAddEmployee: AddEmployeeCheck, completion: @escaping (AddEmployee?) -> Void){
         
-        guard let addEmployeeUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Employee/AddEmployees")
+        guard let addEmployeeUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Employee/AddEmployees")
         else{
             return
         }
@@ -271,7 +271,7 @@ class InventoryRecordController: UIViewController {
     }
     
     
-    func textFieldSettings(){
+    private func textFieldSettings(){
         sicilNoTextField.addUnderLine()
         nameTextField.addUnderLine()
         surNameTextField.addUnderLine()

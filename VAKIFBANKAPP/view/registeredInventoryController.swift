@@ -98,7 +98,7 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
     
     
     private func getInventoryData(completion: @escaping (InventoryResponse?) -> Void){
-        guard let inventoryUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Product/GetProductList") else{
+        guard let inventoryUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Product/GetProductList") else{
             return
         }
         var inventoryRequest = URLRequest(url: inventoryUrl)
@@ -139,7 +139,7 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
     }
     
     private func getEmployeeData( completion: @escaping (EmployeeResponse?) -> Void){
-        guard let employeeUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Employee/GetEmployeeList") else{
+        guard let employeeUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Employee/GetEmployeeList") else{
             return
         }
         var employeeRequest = URLRequest(url: employeeUrl)
@@ -190,7 +190,7 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
     
     private func deleteEmployees(requestModelDeleteEmployees: DeleteEmployeeCheck, completion: @escaping (DeleteEmployee?) -> Void){
         
-        guard let deleteEmployeeUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Employee/DeleteEmployees") else{
+        guard let deleteEmployeeUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Employee/DeleteEmployees") else{
             return
         }
         var deleteEmployeeRequest = URLRequest(url: deleteEmployeeUrl)
@@ -235,7 +235,8 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
     
     private func deleteEmployeeProduct(requestModelDeleteEmployeeProduct: DeleteEmployeeProductCheck, completion: @escaping (DeleteEmployeeProduct?) -> Void){
         
-        guard let deleteEmployeeProductUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/EmployeeProduct/DeleteEmployeeProducts") else{
+        guard let deleteEmployeeProductUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/EmployeeProduct/DeleteEmployeeProducts")
+        else{
             return
         }
         
@@ -279,7 +280,7 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
     
     private func deleteProduct(requestModelDeleteProduct: DeleteProductCheck, completion: @escaping (DeleteProduct?) -> Void){
         
-        guard let deleteProductUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Product/DeleteProducts") else{
+        guard let deleteProductUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Product/DeleteProducts") else{
             return
         }
         var deleteProductRequest = URLRequest(url: deleteProductUrl)

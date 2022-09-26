@@ -15,7 +15,7 @@ struct EmployeeResponse: Codable {
 struct Employee: Codable {
     let guidId: String
     let recordId: Int
-    let employeeName: String
+    var employeeName: String
     let employeeSurname: String
     let department: String
     let employeeEmail: String

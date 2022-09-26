@@ -7,79 +7,140 @@
 
 import UIKit
 
+
 class UpdateInventoryController: UIViewController {
 
-    @IBOutlet weak var sicilNoTextField: UITextField!
+    @IBOutlet weak var updateInventoryTextField: UITextField!
     
-    @IBOutlet weak var nameTextField: UITextField!
-    
-    @IBOutlet weak var surnameTextField: UITextField!
-    
-    @IBOutlet weak var departmentTextField: UITextField!
-    
-    @IBOutlet weak var inventoryTextField: UITextField!
+    @IBOutlet weak var updateDepartmentTextField: UITextField!
+    @IBOutlet weak var updateSurnameTextField: UITextField!
+    @IBOutlet weak var updateEmailTextField: UITextField!
+    @IBOutlet weak var updateNameTextField: UITextField!
+    @IBOutlet weak var updateSicilNoTextField: UITextField!
     
     var getUpdateEmployeeResponse : UpdateEmployee?
     var getUpdateProductResponse: UpdateProduct?
     var getUpdateEmployeeProductResponse: UpdateEmployeeProduct?
+    var updateEmployeeRequest: EmployeeCheck?
  
     var selectedEmployee: Employee?
+    var selectedUpdateEmployee: UpdateEmployee?
+    private var productList = [EmployeeProduct]()
     
     var updatedProductId: Int = 0
     var updatedProductName: String = ""
     var updatedRecordId: Int = 0
     var updatedNewProductId: Int = 0
     
+    var updatedEmployeeName: String = ""
+    var updatedEmployeeSurname: String = ""
+    var updatedEmployeeDepartment: String = ""
+    var updatedEmployeeEmail: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        sicilNoTextField.addUnderLine()
-        nameTextField.addUnderLine()
-        surnameTextField.addUnderLine()
-        departmentTextField.addUnderLine()
-        inventoryTextField.addUnderLine()
+        textFieldSettings()
         
-        sicilNoTextField.text = "Sicil No: \(String(selectedEmployee?.recordId ?? 0))"
-        departmentTextField.text = "Departman: \(selectedEmployee?.department ?? "")"
-        nameTextField.text = "Ad: \(selectedEmployee?.employeeName ?? "")"
-        surnameTextField.text = "Soyad: \(selectedEmployee?.employeeSurname ?? "")"
-        inventoryTextField.text = ""
+        guard let updateRequest = updateEmployeeRequest else{
+            return
+        }
         
-        
-        updateEmployee { updateEmployeeForAdminResponse in
-            guard let updateEmployeeDataChecked = updateEmployeeForAdminResponse else{
+        getUpdateEmployeeProduct(requestEmployeeProduct: updateRequest) { responseUpdateEmployee in
+            guard let employeeChecked = responseUpdateEmployee else{
                 return
             }
             
-            self.getUpdateEmployeeResponse = updateEmployeeDataChecked
+            var products = employeeChecked.employeeProductList ?? []
+            for index in products.indices {
+                for product in Cache.shared.productListArray{
+                    if products[index].productId == product.productId{
+                        products[index].name = product.productName
+                        self.updateInventoryTextField.text = product.productName
+                        break
+                    }
+                }
+            }
             
-        }
-        let requestModelProduct = UpdateProductCheck(updatedProductId: updatedProductId, updatedProductName: updatedProductName)
-        
-        updateProduct(requestModelProduct: requestModelProduct){ updateProductForAdminResponse in
-            guard let updateProductDataChecked = updateProductForAdminResponse else{
-                return
-            }
-            self.getUpdateProductResponse = updateProductDataChecked
-        }
-         
-        let requestModelEmployeeProduct = UpdateEmployeeProductCheck(updatedRecordId: updatedRecordId, updatedProductId: updatedProductId, updatedNewProductId: updatedNewProductId)
-        
-        updateEmployeeProduct(requestModelEmployeeProduct: requestModelEmployeeProduct){ updateEmployeeProductForAdminResponse in
-            guard let updateEmployeeProductDataChecked = updateEmployeeProductForAdminResponse else{
-                return
-            }
-            self.getUpdateEmployeeProductResponse = updateEmployeeProductDataChecked
+            self.productList = products
+    
         }
     
     }
     
+    
+    private func getUpdateEmployeeProduct(requestEmployeeProduct: EmployeeCheck,completion: @escaping (EmployeeProductList?) -> Void ){
+        guard let productURL = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/EmployeeProduct/GetEmployeeProductById")
+        else{
+            return
+        }
+        var employeeProductRequest = URLRequest(url: productURL)
+        employeeProductRequest.httpMethod = "POST"
+        employeeProductRequest.httpBody = try? JSONEncoder().encode(requestEmployeeProduct)
+        
+        employeeProductRequest.allHTTPHeaderFields = ["accept" : "text/plain", "Content-Type" : "application/json-patch+json"]
+        
+        URLSession.shared.dataTask(with: employeeProductRequest) { employeeProductData, employeeProductResponse, employeeProductError in
+            if let employeeProductError = employeeProductError {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
+            
+            guard let employeeProductResponse = employeeProductResponse as? HTTPURLResponse else{
+                return
+            }
+            
+            guard let employeeProductData = employeeProductData else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
+            
+            do{
+                let employeeProductCheckResponse = try JSONDecoder().decode(EmployeeProductList.self, from: employeeProductData)
+                DispatchQueue.main.async {
+                    completion(employeeProductCheckResponse)
+                }
+                
+
+        }
+            catch{
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
+        }.resume()
+
+}
+    
+    private func textFieldSettings(){
+        updateSicilNoTextField.addUnderLine()
+        updateNameTextField.addUnderLine()
+        updateSurnameTextField.addUnderLine()
+        updateDepartmentTextField.addUnderLine()
+        updateInventoryTextField.addUnderLine()
+        
+//        sicilNoTextField.text = String(selectedEmployee?.recordId ?? 0)
+//        departmentTextField.text = selectedEmployee?.department
+//        nameTextField.text = selectedEmployee?.employeeName
+//        surnameTextField.text = selectedEmployee?.employeeSurname
+//        emailTextField.text = selectedEmployee?.employeeEmail
+//        // ??
+//        inventoryTextField.text = selectedEmployee?.guidId
+        
+        
+    }
+    
     private func updateEmployeeProduct(requestModelEmployeeProduct: UpdateEmployeeProductCheck, completion: @escaping (UpdateEmployeeProduct?) -> Void){
-        guard let updateEmployeeProductUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/EmployeeProduct/UpdateEmployeeProducts")
+        guard let updateEmployeeProductUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/EmployeeProduct/UpdateEmployeeProducts")
         else{
             return
         }
         var updateEmployeeProductRequest = URLRequest(url: updateEmployeeProductUrl)
         updateEmployeeProductRequest.httpMethod = "POST"
+        updateEmployeeProductRequest.httpBody = try? JSONEncoder().encode(requestModelEmployeeProduct)
         updateEmployeeProductRequest.allHTTPHeaderFields = ["accept": "text/plain","Content-Type": "application/json-patch+json"]
         
         URLSession.shared.dataTask(with: updateEmployeeProductRequest) { updateEmployeeProductData, updateEmployeeProductResponse, updateEmployeeProductError in
@@ -118,11 +179,12 @@ class UpdateInventoryController: UIViewController {
     
     private func updateProduct(requestModelProduct: UpdateProductCheck, completion: @escaping (UpdateProduct?) -> Void){
         
-        guard let updateProductUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Product/UpdateProducts") else{
+        guard let updateProductUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Product/UpdateProducts") else{
             return
         }
         var updateProductRequest = URLRequest(url: updateProductUrl)
         updateProductRequest.allHTTPHeaderFields = ["accept": "text/plain" , "Content-Type": "application/json-patch+json"]
+        updateProductRequest.httpBody = try? JSONEncoder().encode(requestModelProduct)
         updateProductRequest.httpMethod = "POST"
         
         URLSession.shared.dataTask(with: updateProductRequest) { productData, productResponse, productError in
@@ -160,24 +222,26 @@ class UpdateInventoryController: UIViewController {
         }.resume()
     }
     
-    private func updateEmployee(completion: @escaping (UpdateEmployee?) -> Void){
-        
-        guard let updateEmployeeUrl = URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Employee/UpdateEmployees") else{
+    
+    private func updateEmployee(requestModelUpdateEmployee: UpdateEmployeeCheck,completion: @escaping (UpdateEmployee?) -> Void){
+
+        guard let updateEmployeeUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Employee/UpdateEmployees") else{
             return
         }
-        
+
         var updateEmployeeRequest = URLRequest(url: updateEmployeeUrl)
         updateEmployeeRequest.httpMethod = "POST"
+        updateEmployeeRequest.httpBody = try? JSONEncoder().encode(requestModelUpdateEmployee)
         updateEmployeeRequest.allHTTPHeaderFields = ["accept" : "text/plain", "Content-Type" : "application/json-patch+json"]
-        
+
         URLSession.shared.dataTask(with: updateEmployeeRequest) { updateEmployeeData, updateEmployeeResponse, updateEmployeeError in
-            
+
             if let updateEmployeeError = updateEmployeeError {
                 DispatchQueue.main.async {
                     completion(nil)
                 }
             }
-            
+
             guard let updateEmployeeResponse = updateEmployeeResponse as? HTTPURLResponse else {
                 return
             }
@@ -188,27 +252,55 @@ class UpdateInventoryController: UIViewController {
                 }
                 return
             }
-            
+
             do{
                 let employeeUpdateCheckResponse = try? JSONDecoder().decode(UpdateEmployee.self, from: updateEmployeeData)
                 DispatchQueue.main.async {
                     completion(employeeUpdateCheckResponse)
                 }
-            }catch{
+            }
+            catch{
                 DispatchQueue.main.async {
                     completion(nil)
                 }
             }
 
         }.resume()
-        
+
     }
     
-    @IBAction func saveButtonClicked(_ sender: Any) {
+    @IBAction func updateButtonClicked(_ sender: Any) {
+        
+        updatedEmployeeName = updateNameTextField.text ?? ""
+        updatedEmployeeSurname = updateSurnameTextField.text ?? ""
+        updatedEmployeeDepartment = updateDepartmentTextField.text ?? ""
+        updatedEmployeeEmail = updateEmailTextField.text ?? ""
+        updatedRecordId = Int(updateSicilNoTextField.text ?? "") ?? 0
         
         
+        let requestModelUpdate = UpdateEmployeeCheck(updatedRecordID: updatedRecordId, updatedEmployeeName: updatedEmployeeName, updatedEmployeeSurname: updatedEmployeeSurname, updatedEmployeeDepartment: updatedEmployeeDepartment, updatedEmployeeEmail: updatedEmployeeEmail, updatedProductID: 1, updatedNewProductID: 4)
+        
+        updateEmployee(requestModelUpdateEmployee: requestModelUpdate) { updateEmployeeResponse in
+            guard let updateEmployeeDataChecked = updateEmployeeResponse else{
+                return
+            }
+            
+            print(updateEmployeeDataChecked)
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        
+        let requestEmployeeProductUpdate = UpdateEmployeeProductCheck(updatedRecordId: updatedRecordId, updatedProductId: 4, updatedNewProductId: 3)
+        
+        updateEmployeeProduct(requestModelEmployeeProduct: requestEmployeeProductUpdate) { updateEmployeeProductResponse in
+            guard let updateEmployeeProductDataChecked = updateEmployeeProductResponse else{
+                return
+            }
+            
+            print(updateEmployeeProductDataChecked)
+        }
     }
-    
     
 
 }

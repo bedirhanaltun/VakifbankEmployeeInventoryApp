@@ -104,7 +104,7 @@ class ViewController: UIViewController{
     
     
     private func getLoginData(requestModel: LoginCheckRequest, completion: @escaping (LoginCheckReponse?) -> Void)  {
-        guard let url =  URL(string: "https://employeeinventory20220810152033.azurewebsites.net/api/Login/LoginCheck") else { return }
+        guard let url =  URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Login/LoginCheck") else { return }
         
         var request = URLRequest(url: url)
         request.httpBody = try? JSONEncoder().encode(requestModel)
