@@ -16,12 +16,7 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        sicilNoTextfield.addUnderLine()
-        passwordTextfield.addUnderLine()
-        sicilNoLabel.isHidden = true
-        passwordLabel.isHidden = true
-        sicilNoTextfield.addTarget(self, action: #selector(ViewController.textFieldDidChange(_:)), for: .editingChanged)
-        passwordTextfield.addTarget(self, action: #selector(ViewController.textFieldDidChangePassword(_:)), for: .editingChanged)
+        textFieldSettings()
         
         if UserDefaults.standard.bool(forKey: "ISUSERLOGGEDIN") == true {
             let inventoryVC = self.storyboard?.instantiateViewController(withIdentifier: "registeredInventoryId") as! registeredInventoryController
@@ -29,6 +24,17 @@ class ViewController: UIViewController{
         }
         
         
+    }
+    
+    private func textFieldSettings(){
+        sicilNoTextfield.addUnderLine()
+        passwordTextfield.addUnderLine()
+        sicilNoTextfield.text = "agahburak"
+        passwordTextfield.text = "12345"
+        sicilNoLabel.isHidden = true
+        passwordLabel.isHidden = true
+        sicilNoTextfield.addTarget(self, action: #selector(ViewController.textFieldDidChange(_:)), for: .editingChanged)
+        passwordTextfield.addTarget(self, action: #selector(ViewController.textFieldDidChangePassword(_:)), for: .editingChanged)
     }
     
     
