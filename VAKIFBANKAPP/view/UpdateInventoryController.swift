@@ -9,11 +9,10 @@ import UIKit
 
 
 class UpdateInventoryController: UIViewController {
-
-    @IBOutlet weak var updateInventoryTextField: UITextField!
-    
-    @IBOutlet weak var updateDepartmentTextField: UITextField!
     @IBOutlet weak var updateSurnameTextField: UITextField!
+    
+    @IBOutlet weak var updateInventoryTextField: UITextField!
+    @IBOutlet weak var updateDepartmentTextField: UITextField!
     @IBOutlet weak var updateEmailTextField: UITextField!
     @IBOutlet weak var updateNameTextField: UITextField!
     @IBOutlet weak var updateSicilNoTextField: UITextField!
@@ -176,52 +175,7 @@ class UpdateInventoryController: UIViewController {
 
         }.resume()
     }
-    
-    private func updateProduct(requestModelProduct: UpdateProductCheck, completion: @escaping (UpdateProduct?) -> Void){
         
-        guard let updateProductUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Product/UpdateProducts") else{
-            return
-        }
-        var updateProductRequest = URLRequest(url: updateProductUrl)
-        updateProductRequest.allHTTPHeaderFields = ["accept": "text/plain" , "Content-Type": "application/json-patch+json"]
-        updateProductRequest.httpBody = try? JSONEncoder().encode(requestModelProduct)
-        updateProductRequest.httpMethod = "POST"
-        
-        URLSession.shared.dataTask(with: updateProductRequest) { productData, productResponse, productError in
-            if let productError = productError {
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-            }
-            
-            guard let productResponse = productResponse as? HTTPURLResponse else {
-                return
-            }
-            
-            guard let productData = productData else {
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-                return
-            }
-            
-            do{
-                let productUpdateCheckResponse = try JSONDecoder().decode(UpdateProduct.self, from: productData)
-                DispatchQueue.main.async {
-                    completion(productUpdateCheckResponse)
-                }
-            }
-            catch{
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-            }
-
-
-            
-        }.resume()
-    }
-    
     
     private func updateEmployee(requestModelUpdateEmployee: UpdateEmployeeCheck,completion: @escaping (UpdateEmployee?) -> Void){
 

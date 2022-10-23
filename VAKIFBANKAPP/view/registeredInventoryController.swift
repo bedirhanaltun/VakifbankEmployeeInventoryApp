@@ -278,7 +278,7 @@ class registeredInventoryController: BaseViewController,UITableViewDelegate,UITa
         }.resume()
     }
     
-    private func deleteProduct(requestModelDeleteProduct: DeleteProductCheck, completion: @escaping (DeleteProduct?) -> Void){
+    private func deleteProduct(requestModelDeleteProduct: DeleteProductCheck, completion: @escaping (DeleteProduct?) -> Void){ 
         
         guard let deleteProductUrl = URL(string: "https://employeeinventory20220915181631.azurewebsites.net/api/Product/DeleteProducts") else{
             return

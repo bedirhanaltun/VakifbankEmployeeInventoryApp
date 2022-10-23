@@ -643,12 +643,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="3gj-Ur-Tog"/>
                     <connections>
-                        <outlet property="updateDepartmentTextField" destination="Bj4-6s-Huf" id="gHE-gJ-ESo"/>
-                        <outlet property="updateEmailTextField" destination="g3f-YB-EML" id="EZm-3X-zR8"/>
-                        <outlet property="updateInventoryTextField" destination="8Il-xT-YVh" id="Y4Q-aY-5hJ"/>
-                        <outlet property="updateNameTextField" destination="GAX-Bh-hgX" id="Gth-aF-5gx"/>
-                        <outlet property="updateSicilNoTextField" destination="naH-50-t2l" id="fXg-bW-fli"/>
-                        <outlet property="updateSurnameTextField" destination="Ln5-xU-ktw" id="4cd-ag-pUT"/>
+                        <outlet property="updateDepartmentTextField" destination="Bj4-6s-Huf" id="aGN-LE-JtO"/>
+                        <outlet property="updateEmailTextField" destination="g3f-YB-EML" id="gd3-YS-hPf"/>
+                        <outlet property="updateInventoryTextField" destination="8Il-xT-YVh" id="WTb-dM-I1Q"/>
+                        <outlet property="updateNameTextField" destination="GAX-Bh-hgX" id="DRk-aG-6jB"/>
+                        <outlet property="updateSicilNoTextField" destination="naH-50-t2l" id="JzJ-jq-q3R"/>
+                        <outlet property="updateSurnameTextField" destination="Ln5-xU-ktw" id="enp-3q-myk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jtr-M6-m0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -841,9 +841,9 @@
         <image name="Group 5" width="347" height="263"/>
         <image name="VBlogo_White" width="406" height="90"/>
         <image name="Vector" width="166" height="166"/>
-        <image name="eye.slash" catalog="system" width="32" height="32"/>
-        <image name="info.circle" catalog="system" width="32" height="32"/>
-        <image name="plus" catalog="system" width="32" height="32"/>
+        <image name="eye.slash" catalog="system" width="128" height="86"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
